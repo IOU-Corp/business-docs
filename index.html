@@ -123,7 +123,7 @@
       <p>Find IOU Corp's general business terms, privacy information, and related legal documents in one place.</p>
       <div class="hero-meta">
         <span class="hero-pill">General business</span>
-        <span class="hero-pill">4 legal documents</span>
+        <span class="hero-pill">3 legal documents</span>
       </div>
     </div>
   </section>
@@ -135,15 +135,14 @@
         <details open>
           <summary>Business policies</summary>
           <div class="side-links">
-            <a href="#terms-of-service">Terms of Service</a>
-            <a href="#privacy-policy">Privacy Policy</a>
+            <a href="https://iou-corp.github.io/business-terms-of-service/" data-doc="terms">Terms of Service</a>
+            <a href="https://iou-corp.github.io/business-privacy-policy/" data-doc="privacy">Privacy Policy</a>
           </div>
         </details>
         <details open>
           <summary>Other legal documents</summary>
           <div class="side-links">
             <a href="https://iou-corp.github.io/dmca/" data-doc="dmca">DMCA Policy</a>
-            <a href="#disclaimer">Disclaimer</a>
           </div>
         </details>
       </nav>
@@ -154,7 +153,7 @@
       <a id="back-to-directory" href="https://iou-corp.github.io/business-docs/" hidden>← Back to all documents</a>
       <div class="content-heading">
         <h2>Explore documents</h2>
-        <p>The shared DMCA Policy is published. The general business Terms of Service, Privacy Policy, and Disclaimer still contain placeholders.</p>
+        <p>Read the Terms of Service, Privacy Policy, and shared DMCA Policy here.</p>
       </div>
       <section id="document-viewer" aria-label="Selected legal document" tabindex="-1" hidden></section>
       <div class="cards" id="directory-cards">
@@ -164,10 +163,10 @@
               <span class="doc-number">DOCUMENT 01</span>
               <h3 id="terms-title">Business Terms of Service</h3>
             </div>
-            <span class="status">Placeholder</span>
+            <span class="status">Published</span>
           </div>
-          <p>The general business Terms of Service page for IOU Corp. Final legal language has not yet been posted.</p>
-          <a class="document-link" href="https://iou-corp.github.io/business-terms-of-service/">Open Terms of Service <span aria-hidden="true">↗</span></a>
+          <p>Read the published Terms of Service for IOU Corp business customers.</p>
+          <a class="document-link" href="https://iou-corp.github.io/business-terms-of-service/" data-doc="terms">Open Terms of Service <span aria-hidden="true">↗</span></a>
         </article>
         <article class="doc-card" id="privacy-policy" aria-labelledby="privacy-title">
           <div class="doc-row">
@@ -175,10 +174,10 @@
               <span class="doc-number">DOCUMENT 02</span>
               <h3 id="privacy-title">Business Privacy Policy</h3>
             </div>
-            <span class="status">Placeholder</span>
+            <span class="status">Published</span>
           </div>
-          <p>The general business Privacy Policy page for IOU Corp. Final legal language has not yet been posted.</p>
-          <a class="document-link" href="https://iou-corp.github.io/business-privacy-policy/">Open Privacy Policy <span aria-hidden="true">↗</span></a>
+          <p>Read the published Privacy Policy for IOU Corp business customers.</p>
+          <a class="document-link" href="https://iou-corp.github.io/business-privacy-policy/" data-doc="privacy">Open Privacy Policy <span aria-hidden="true">↗</span></a>
         </article>
         <article class="doc-card" id="dmca" aria-labelledby="dmca-title">
           <div class="doc-row">
@@ -191,37 +190,18 @@
           <p>The dedicated Digital Millennium Copyright Act (DMCA) Policy page. The shared DMCA Policy is now published and applies to both business document collections.</p>
           <a class="document-link" href="https://iou-corp.github.io/dmca/" data-doc="dmca">Open DMCA Policy <span aria-hidden="true">↗</span></a>
         </article>
-        <article class="doc-card" id="disclaimer" aria-labelledby="disclaimer-title">
-          <div class="doc-row">
-            <div>
-              <span class="doc-number">DOCUMENT 04</span>
-              <h3 id="disclaimer-title">Business Disclaimer</h3>
-            </div>
-            <span class="status">Placeholder</span>
-          </div>
-          <p>The general business Disclaimer page for IOU Corp. Final legal language has not yet been posted.</p>
-          <a class="document-link" href="https://iou-corp.github.io/iou-business-disclaimer/">Open Disclaimer <span aria-hidden="true">↗</span></a>
-        </article>
-      </div>
-      <section class="notice" aria-label="Document status notice">
-        <div class="notice-symbol" aria-hidden="true">!</div>
-        <div>
-          <h3>Some general business documents are pending</h3>
-          <p>The general Terms of Service, Privacy Policy, and Disclaimer await final text. The shared DMCA Policy is available now.</p>
         </div>
-      </section>
-    </main>
+      </main>
   </div>
   <footer>&copy; 2026 IOU Corp. Document directory.</footer>
 <script>
 (() => {
   "use strict";
-  const sources = {"dmca":"https://iou-corp.github.io/dmca/"};
+  const sources = {"terms":"https://iou-corp.github.io/business-terms-of-service/","privacy":"https://iou-corp.github.io/business-privacy-policy/","dmca":"https://iou-corp.github.io/dmca/"};
 
   const viewer = document.getElementById("document-viewer");
   const directory = document.getElementById("directory-cards");
   const intro = document.querySelector(".content-heading");
-  const notice = document.querySelector(".notice");
   const back = document.getElementById("back-to-directory");
   const links = [...document.querySelectorAll("a[data-doc]")];
   let requestToken = 0;
@@ -238,7 +218,6 @@
     viewer.hidden = true;
     directory.hidden = false;
     intro.hidden = false;
-    notice.hidden = false;
     back.hidden = true;
     selected(null);
     if (updateHistory) history.pushState(null, "", location.pathname);
@@ -250,7 +229,6 @@
     viewer.hidden = false;
     directory.hidden = true;
     intro.hidden = true;
-    notice.hidden = true;
     back.hidden = false;
     viewer.textContent = "Loading policy document…";
     selected(key);
